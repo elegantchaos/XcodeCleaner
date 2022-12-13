@@ -1,4 +1,4 @@
-// swift-tools-version:5.6
+// swift-tools-version:5.7
 
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 //  Created by Sam Deane on 13/12/2022.
@@ -11,7 +11,7 @@ let package = Package(
     name: "XcodeCleaner",
 
     platforms: [
-        .macOS(.v12), .macCatalyst(.v15), .iOS(.v15), .tvOS(.v15), .watchOS(.v8)
+        .macOS(.v12)
     ],
 
     products: [
@@ -26,8 +26,8 @@ let package = Package(
         .package(url: "https://github.com/elegantchaos/XCTestExtensions.git", from: "1.4.2"),
         
         // tools
-        .package(url: "https://github.com/elegantchaos/ActionBuilderPlugin.git", from: "1.0.7"),
-        .package(url: "https://github.com/elegantchaos/SwiftFormatterPlugin.git", from: "1.0.3"),
+//        .package(url: "https://github.com/elegantchaos/ActionBuilderPlugin.git", from: "1.0.7"),
+//        .package(url: "https://github.com/elegantchaos/SwiftFormatterPlugin.git", from: "1.0.3"),
     ],
     
     targets: [
@@ -42,6 +42,8 @@ let package = Package(
             dependencies: [
                 "XcodeCleaner",
                 "XCTestExtensions"
+            ],
+            resources: [
             ]
         ),
     ]

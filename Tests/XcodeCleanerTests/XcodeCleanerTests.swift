@@ -20,8 +20,9 @@ final class XcodeCleanerTests: XCTestCase {
         let converted = try await cleaner.clean(lines: example)
         var results: [String] = []
         for try await line in converted {
+            print(line as! String)
             if let expected = results.popLast() {
-                XCTAssertEqual(line, expected)
+                XCTAssertEqual(line as! String, expected)
             }
         }
         XCTAssertTrue(results.isEmpty)

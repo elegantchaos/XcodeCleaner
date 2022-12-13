@@ -9,10 +9,17 @@ import XCTestExtensions
 @testable import XcodeCleaner
 
 final class XcodeCleanerTests: XCTestCase {
+    var example: AsyncLineSequence<URL.AsyncBytes> {
+        let url = Bundle.module.url(forResource: "Example", withExtension: "txt")
+        let example = url!.lines
+        return example
+    }
+    
     func testExample() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct
         // results.
-        XCTAssertEqual(XcodeCleaner().text, "Hello, World!")
+        let cleaner = XcodeCleaner()
+        XCTAssertEqual(cleaner.clean(lines: ["test"]), ["test"])
     }
 }

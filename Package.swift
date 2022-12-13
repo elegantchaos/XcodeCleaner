@@ -44,6 +44,8 @@ let package = Package(
                 "XCTestExtensions"
             ],
             resources: [
+                .copy("Example.txt")
+                
             ]
         ),
     ]

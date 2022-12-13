@@ -3,6 +3,14 @@
 //  All code (c) 2022 - present day, Sam Deane.
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
+import Foundation
+
 struct XcodeCleaner {
-    var text = "Hello, World!"
+    func clean(lines: [String]) -> [String] {
+        return lines
+    }
+    
+    func clean<S>(lines: S) where S: AsyncLineSequence {
+        
+    }
 }

@@ -18,18 +18,16 @@ final class XcodeCleanerTests: XCTestCase {
     func testExampleStream() async throws {
         let cleaner = XcodeCleaner()
         let converted = try await cleaner.clean(lines: example)
-        let results = [""]
-        var n = 0
+        var results: [String] = []
         for try await line in converted {
-            XCTAssertEqual(line, results[n])
-            n = n + 1
+            if let expected = results.popLast() {
+                XCTAssertEqual(line, expected)
+            }
         }
+        XCTAssertTrue(results.isEmpty)
     }
     func testUnknownLine() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct
-        // results.
         let cleaner = XcodeCleaner()
-        XCTAssertEqual(cleaner.clean("test"), "test")
+        XCTAssertNil(cleaner.clean("test"))
     }
 }

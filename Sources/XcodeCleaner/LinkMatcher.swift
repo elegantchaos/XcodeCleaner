@@ -17,8 +17,8 @@ class LinkMatcher: CodeMatcher {
 
     func output(_ line: String) -> String? {
         let pattern = #/
-        Ld \s .*?
-        (?<name> / .*?).o
+        Ld \s .* \/
+        (?<name> .*?)\.o
         /#
         
         

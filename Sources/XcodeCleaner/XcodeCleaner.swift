@@ -6,12 +6,9 @@
 import Foundation
 import RegexBuilder
 
-
-
 protocol CodeMatcher {
     func output(_ line: String) -> String?
 }
-
 
 struct XcodeCleaner {
     

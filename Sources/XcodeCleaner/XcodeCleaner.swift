@@ -6,11 +6,15 @@
 import Foundation
 
 struct XcodeCleaner {
-    func clean(lines: [String]) -> [String] {
-        return lines
+    func clean(_ line: String) -> String {
+        return line
     }
     
-    func clean<S>(lines: S) where S: AsyncLineSequence {
+    func clean<T>(lines: AsyncLineSequence<T>) async throws -> AsyncMapSequence<AsyncLineSequence<T>, String>  {
+        let outputSequence = lines.map({ line in
+            clean(line)
+        })
         
+        return outputSequence
     }
 }
